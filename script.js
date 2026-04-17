@@ -10,16 +10,6 @@
     });
   }
 
-  // Demo tiles: subtle selection state
-  document.querySelectorAll(".demo-tile").forEach(function (tile) {
-    tile.addEventListener("click", function () {
-      document.querySelectorAll(".demo-tile").forEach(function (t) {
-        t.classList.remove("is-selected");
-      });
-      tile.classList.add("is-selected");
-    });
-  });
-
   // Mobile navigation toggle
   var menuToggle = document.querySelector(".menu-toggle");
   var nav = document.querySelector(".nav");
