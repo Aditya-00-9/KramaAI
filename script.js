@@ -1,16 +1,37 @@
 (function () {
   "use strict";
 
+  // Accent / theme toggle (cosmetic)
+  var themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var on = document.body.classList.toggle("accent-soft");
+      themeToggle.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  // Demo tiles: subtle selection state
+  document.querySelectorAll(".demo-tile").forEach(function (tile) {
+    tile.addEventListener("click", function () {
+      document.querySelectorAll(".demo-tile").forEach(function (t) {
+        t.classList.remove("is-selected");
+      });
+      tile.classList.add("is-selected");
+    });
+  });
+
   // Mobile navigation toggle
   var menuToggle = document.querySelector(".menu-toggle");
   var nav = document.querySelector(".nav");
-  var headerCta = document.querySelector(".header-cta");
+  var navShell = document.querySelector(".nav-shell");
+  var headerActions = document.querySelector(".header-actions");
 
-  if (menuToggle && nav && headerCta) {
+  if (menuToggle && nav && headerActions) {
     menuToggle.addEventListener("click", function () {
       var isOpen = menuToggle.classList.toggle("is-open");
       nav.classList.toggle("is-open", isOpen);
-      headerCta.classList.toggle("is-open", isOpen);
+      headerActions.classList.toggle("is-open", isOpen);
+      if (navShell) navShell.classList.toggle("is-open", isOpen);
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
