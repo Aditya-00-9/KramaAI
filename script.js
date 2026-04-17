@@ -42,29 +42,6 @@
     });
   }
 
-  // Screenshot gallery tabs
-  document.querySelectorAll(".gallery-tab").forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      var panelId = tab.getAttribute("data-panel");
-      if (!panelId) return;
-      document.querySelectorAll(".gallery-tab").forEach(function (t) {
-        t.classList.remove("is-active");
-        t.setAttribute("aria-selected", "false");
-      });
-      tab.classList.add("is-active");
-      tab.setAttribute("aria-selected", "true");
-      document.querySelectorAll(".gallery-panel").forEach(function (p) {
-        p.classList.remove("is-active");
-        p.setAttribute("hidden", "");
-      });
-      var panel = document.getElementById(panelId);
-      if (panel) {
-        panel.classList.add("is-active");
-        panel.removeAttribute("hidden");
-      }
-    });
-  });
-
   // FAQ accordion
   var faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach(function (item) {

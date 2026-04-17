@@ -1705,6 +1705,15 @@ img {
   gap: 16px;
 }
 
+.product-shot-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.product-shot-grid .shot-card figcaption strong {
+  color: var(--color-strong);
+}
+
 .shot-card {
   margin: 0;
   border-radius: var(--radius-md);
