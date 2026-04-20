@@ -1,8 +1,8 @@
 {
-  "name": "pulseai-marketing-site",
+  "name": "kramaai-marketing-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Marketing homepage for the PulseAI SaaS platform.",
+  "description": "Marketing homepage for the KramaAI SaaS platform.",
   "scripts": {
     "start": "npx serve ."
   }
