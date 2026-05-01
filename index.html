@@ -29,6 +29,7 @@
           <a href="#screens">Live demo</a>
           <a href="#features">Features</a>
           <a href="#compare">Compare</a>
+          <a href="#schedule">Schedule</a>
           <a href="#cta">Contact</a>
         </nav>
       </div>
@@ -36,7 +37,7 @@
         <button type="button" class="btn btn-theme" id="theme-toggle" aria-pressed="false" aria-label="Toggle accent intensity">Accent</button>
         <div class="header-cta">
           <a href="#screens" class="btn btn-ghost">See live UI</a>
-          <a href="#cta" class="btn btn-primary">Increase revenue →</a>
+          <a href="#schedule" data-schedule-call data-schedule-fallback="#cta" class="btn btn-primary">Schedule a call</a>
         </div>
       </div>
       <button class="menu-toggle" type="button" aria-label="Toggle navigation">
@@ -59,12 +60,12 @@
             <span class="hero-label-dot" aria-hidden="true"></span>
             BMS + AI · Class-based businesses
           </p>
-          <h1 id="hero-title" class="hero-title">KramaAI BMS</h1>
-          <p class="hero-icp">The business system for <strong>gyms, kids centers, studios, and spas</strong>—not a generic AI chatbot.</p>
+          <h1 id="hero-title" class="hero-title">KramaAI is the BMS for gyms, kids centers, studios, and spas.</h1>
+          <p class="hero-icp">Built for class-based operators who need one system for <strong>memberships, schedules, payments, and attendance</strong>—not a generic AI tool.</p>
           <p class="hero-value-prop">BMS + AI for <strong>revenue</strong>, <strong>operations</strong>, and <strong>retention</strong> in one licensed product.</p>
           <p class="hero-subtitle">
-            In five seconds: you run memberships, schedules, and money across locations—we give you Admin, Owner, Staff, and
-            customer apps, a real ledger, and workflows built for <strong>how facilities actually earn and operate</strong>.
+            You run memberships, schedules, and money across locations—we give you Admin, Owner, Staff, and customer apps, a
+            real ledger, and workflows built for <strong>how facilities actually earn and operate</strong>.
           </p>
           <div class="hero-tags" aria-label="Outcomes operators care about">
             <span class="tag-pill">Grow recurring revenue</span>
@@ -75,9 +76,10 @@
             <span class="tag-pill">Audit-friendly finance</span>
           </div>
           <div class="hero-actions">
-            <a href="#cta" class="btn btn-primary btn-lg btn-arrow">Book a revenue walkthrough</a>
+            <a href="#schedule" data-schedule-call data-schedule-fallback="#cta" class="btn btn-primary btn-lg btn-arrow">Schedule a call</a>
             <a href="#screens" class="btn btn-outline btn-lg">See dashboard, payments &amp; attendance</a>
           </div>
+          <p class="hero-alt-cta"><a href="#cta">Or send details with the contact form →</a></p>
           <p class="hero-footnote">Vertical SaaS · licensed rollout · your team trained on live KramaAI BMS.</p>
         </div>
         <div class="hero-visual">
@@ -137,6 +139,26 @@
           <a href="#screens" class="btn btn-primary">See live product screenshots</a>
           <a href="#features" class="btn btn-ghost">Full capability map</a>
         </p>
+      </div>
+    </section>
+
+    <!-- Guided journey -->
+    <section id="journey" class="section journey-strip" aria-label="Guided buying journey">
+      <div class="container">
+        <div class="journey-steps" role="list">
+          <a href="#problem" class="journey-step" role="listitem">
+            <span class="journey-step-no">01</span>
+            <span class="journey-step-copy"><strong>Problem</strong> Revenue leaks and operational chaos in disconnected tools.</span>
+          </a>
+          <a href="#solution" class="journey-step" role="listitem">
+            <span class="journey-step-no">02</span>
+            <span class="journey-step-copy"><strong>Solution</strong> KramaAI BMS unifies memberships, sessions, payments, and payouts.</span>
+          </a>
+          <a href="#screens" class="journey-step" role="listitem">
+            <span class="journey-step-no">03</span>
+            <span class="journey-step-copy"><strong>Demo</strong> Review real dashboard, attendance, transaction, and payout screens.</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -650,7 +672,7 @@
       <div class="container">
         <header class="section-header">
           <p class="section-kicker">Compare</p>
-          <h2>Why operators evaluate KramaAI BMS next to MyStudio, Pike13, and iClassPro</h2>
+          <h2>Why operators evaluate KramaAI next to MyStudio, Pike13, and iClassPro</h2>
           <p class="section-subtitle">
             Incumbent platforms are strong at calendars and memberships. Buyers still switch when finance, multi-center
             payouts, and a single operational ledger need to live in <strong>one vertical BMS</strong>—with room for AI on
@@ -662,7 +684,7 @@
             <thead>
               <tr>
                 <th scope="col">Capability</th>
-                <th scope="col">KramaAI BMS</th>
+                <th scope="col">KramaAI</th>
                 <th scope="col">MyStudio</th>
                 <th scope="col">Pike13</th>
                 <th scope="col">iClassPro</th>
@@ -714,8 +736,8 @@
               <tr>
                 <th scope="row">Reason teams add KramaAI</th>
                 <td colspan="4" class="compare-foot">
-                  When “another export to finance” is the bottleneck, KramaAI BMS is the path to one system of record across
-                  roles. <a href="#cta">Talk to sales</a> if you are on MyStudio, Pike13, or iClassPro today—we map a migration story to your centers.
+                  When “another export to finance” is the bottleneck, KramaAI is the path to one system of record across
+                  roles. <a href="#schedule">Schedule a call</a> if you are on MyStudio, Pike13, or iClassPro today—we map a migration story to your centers.
                 </td>
               </tr>
             </tbody>
@@ -773,6 +795,31 @@
       </div>
     </section>
 
+    <!-- Schedule a call -->
+    <section id="schedule" class="section schedule-section" aria-labelledby="schedule-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">Schedule</p>
+          <h2 id="schedule-title">Book a live walkthrough</h2>
+          <p class="section-subtitle">
+            Choose a time on our calendar (Calendly, Cal.com, or similar). If you have not connected a scheduler yet, use the
+            contact form below—we still capture preferred date and time there.
+          </p>
+        </header>
+        <div class="schedule-panel">
+          <div class="schedule-panel-actions">
+            <a href="#schedule" data-schedule-call data-schedule-fallback="#cta" class="btn btn-primary btn-lg btn-arrow">Pick a time</a>
+            <a href="schedule.html" class="btn btn-outline btn-lg">Open /schedule page</a>
+            <a href="#cta" class="btn btn-ghost btn-lg">Request by form instead</a>
+          </div>
+          <p class="schedule-config-hint">
+            Set <code>SCHEDULE_CALL_URL</code> in <code>script.js</code> to your booking link. Deployed sites can use a short path:
+            <a href="schedule.html"><code>/schedule.html</code></a> (or <code>/schedule</code> on Vercel with the included rewrite).
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section id="cta" class="section cta">
       <div class="container cta-inner">
@@ -782,18 +829,34 @@
           “go-live” looks like. We will walk KramaAI BMS against your operating model and return a clear proposal—license,
           rollout, and training.
         </p>
-        <form class="cta-form" action="#" method="post">
+        <form id="demo-request-form" class="cta-form" action="#" method="post" novalidate>
+          <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
           <div class="form-row">
-            <input type="text" name="name" placeholder="Full name" required />
-            <input type="email" name="email" placeholder="Work email" required />
+            <input type="text" name="name" id="form-name" autocomplete="name" placeholder="Full name" required />
+            <input type="email" name="email" id="form-email" autocomplete="email" placeholder="Work email" required />
           </div>
           <div class="form-row">
-            <input type="text" name="company" placeholder="Organization name" />
-            <input type="text" name="centers" placeholder="Number of centers" />
+            <input type="text" name="company" id="form-company" autocomplete="organization" placeholder="Organization name" />
+            <input type="text" name="centers" id="form-centers" placeholder="Number of centers" />
           </div>
-          <textarea name="context" rows="4" placeholder="Current stack (e.g. MyStudio / Pike13 / iClassPro), locations, and what you need the BMS to replace"></textarea>
-          <button type="submit" class="btn btn-primary btn-lg">Get revenue &amp; ops plan →</button>
+          <div class="form-row form-row-labeled">
+            <div class="form-field">
+              <label class="form-field-label" for="form-appointment-date">Preferred demo date</label>
+              <input type="date" name="appointment_date" id="form-appointment-date" />
+            </div>
+            <div class="form-field">
+              <label class="form-field-label" for="form-appointment-time">Preferred time (your timezone)</label>
+              <input type="time" name="appointment_time" id="form-appointment-time" />
+            </div>
+          </div>
+          <textarea name="context" id="form-context" rows="4" placeholder="Current stack (e.g. MyStudio / Pike13 / iClassPro), locations, and what you need the BMS to replace"></textarea>
+          <input type="text" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button type="submit" class="btn btn-primary btn-lg" id="form-submit-btn">Get revenue &amp; ops plan →</button>
         </form>
+        <p class="form-config-note">
+          Email alerts use <a href="https://web3forms.com" target="_blank" rel="noopener">Web3Forms</a>. Set your access key in
+          <code>script.js</code> (<code>WEB3FORMS_ACCESS_KEY</code>) so submissions reach your inbox.
+        </p>
       </div>
     </section>
 
@@ -893,6 +956,7 @@
         <a href="#screens">Live demo</a>
         <a href="#features">Features</a>
         <a href="#compare">Compare</a>
+        <a href="#schedule">Schedule</a>
       </div>
       <div class="footer-column">
         <h3>Company</h3>
@@ -902,6 +966,7 @@
       </div>
       <div class="footer-column">
         <h3>Contact</h3>
+        <a href="#schedule">Schedule a call</a>
         <a href="#cta">Sales</a>
         <a href="#cta">Support</a>
         <a href="#">Partnerships</a>
