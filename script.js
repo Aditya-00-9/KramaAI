@@ -2,7 +2,7 @@
   "use strict";
 
   /** Paste your free key from https://web3forms.com — emails go to the address you verify there. */
-  var WEB3FORMS_ACCESS_KEY = "";
+  var WEB3FORMS_ACCESS_KEY = "b382dd26-1d13-4100-926c-3aa9f934412f";
 
   /**
    * Public booking URL (Calendly, Cal.com, Google Appointment Schedules, etc.).
