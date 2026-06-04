@@ -1,72 +1,58 @@
 # KramaAI – Marketing Site
 
-Static marketing homepage for **KramaAI**, an AI-powered business management system for service-based and multi-location organizations.
+Static marketing homepage for **KramaAI BMS** — vertical business management + AI for gyms, kids centers, studios, and spas.
 
 ## Project structure
 
-- `index.html` – Full homepage markup (hero, problem, solution, features, financial clarity, pricing, CTA, FAQ, footer)
-- `styles.css` – All layout and visual design (responsive, dark SaaS style)
-- `script.js` – Mobile navigation + FAQ accordion interactions
-- `package.json` – Metadata and convenience script
-- `vercel.json` – Minimal Vercel configuration for static hosting
-
-No build tools or frameworks are required – this is pure HTML/CSS/JS.
+- `index.html` – Homepage
+- `schedule.html` – Dedicated scheduling page (`/schedule` via Vercel rewrite)
+- `legal/` – Terms, Privacy, and Data Processing pages
+- `styles.css` – Layout and design
+- `script.js` – Navigation, FAQ, forms, schedule links
+- `config.js` – Generated at build (gitignored); holds secrets and URLs
+- `scripts/generate-config.js` – Writes `config.js` from environment variables
+- `vercel.json` – Rewrites and static hosting
 
 ## Running locally
 
-From `bms website` folder:
-
 ```bash
-# option 1 – using the script
-npm install  # installs npx if needed
+npm install
+# Copy config.example.js to config.js and fill in keys, OR:
+$env:WEB3FORMS_ACCESS_KEY="your-key"; npm run build
 npm run start
-
-# option 2 – any static server
-npx serve .
 ```
 
-Then visit `http://localhost:3000` (or the port your static server reports).
+Visit `http://localhost:3000`.
+
+## Environment variables (Vercel)
+
+Set these in the Vercel project **Settings → Environment Variables** (Production & Preview):
+
+| Variable | Purpose |
+|----------|---------|
+| `WEB3FORMS_ACCESS_KEY` | Contact form delivery ([web3forms.com](https://web3forms.com)) |
+| `SCHEDULE_CALL_URL` | Calendly / Cal.com booking URL for all “Book a demo” buttons |
+| `SITE_URL` | Canonical base, e.g. `https://www.kramaai.com` |
+| `LINKEDIN_URL` | Optional; footer hidden if empty |
+| `YOUTUBE_URL` | Optional |
+| `TWITTER_URL` | Optional |
+
+Vercel runs `npm run build` before deploy, which generates `config.js`.
+
+## Custom domain
+
+1. In Vercel: **Project → Settings → Domains** → add `kramaai.com` and `www.kramaai.com`.
+2. Point DNS at Vercel per their instructions.
+3. Set `SITE_URL=https://www.kramaai.com` in environment variables.
+4. Canonical and Open Graph tags in `index.html` already target `https://www.kramaai.com/`.
 
 ## Deploying to Vercel
 
-### Option A – via GitHub (recommended)
+Import the repo, keep the default static output (root directory), and ensure **Build Command** is `npm run build` (from `package.json`). No framework preset required.
 
-1. Initialize a git repo in this folder:
-   ```bash
-   git init
-   git add .
-   git commit -m "Add KramaAI marketing site"
-   git branch -M main
-   git remote add origin <your-github-repo-url>
-   git push -u origin main
-   ```
-2. Go to `https://vercel.com`, sign in, and click **Add New → Project**.
-3. Import your GitHub repository that contains this project.
-4. Leave **Framework Preset**, **Build Command**, and **Output Directory** as default (no custom build needed for this static site).
-5. Click **Deploy**. Vercel will serve `index.html` at `/` automatically.
+## End-to-end checks before buyer demos
 
-### Option B – via Vercel CLI
-
-1. Install the CLI (once):
-   ```bash
-   npm install -g vercel
-   ```
-2. From the `bms website` folder, run:
-   ```bash
-   vercel
-   ```
-3. Follow the prompts (project name, scope, etc.). No build command or output directory is needed; Vercel will deploy the static files in the root.
-
-After the first deploy, you can run:
-
-```bash
-vercel --prod
-```
-
-to push new versions live after each change.
-
-## Notes
-
-- There is no backend or database in this repo. To wire up the contact form, connect `action` in `index.html` to your preferred form backend or API (e.g., Formspree, your own endpoint, or a serverless function).
-- Because this is a static site, it is compatible with **GitHub Pages**, **Netlify**, and other static hosts as well.
-
+1. **Calendar** – Set `SCHEDULE_CALL_URL`, click “Book a demo” → external scheduler opens.
+2. **Contact form** – Submit test from `#cta`; confirm email in Web3Forms inbox.
+3. **Legal** – Footer links open `legal/terms.html`, `legal/privacy.html`, `legal/data-processing.html`.
+4. **Domain** – Confirm production loads on custom domain with valid TLS.

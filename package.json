@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "description": "Marketing homepage for the KramaAI SaaS platform.",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "start": "npx serve ."
+    "build": "node scripts/generate-config.js",
+    "start": "npx serve .",
+    "prestart": "node scripts/generate-config.js"
   }
 }
 

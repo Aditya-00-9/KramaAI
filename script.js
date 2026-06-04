@@ -1,15 +1,9 @@
 (function () {
   "use strict";
 
-  /** Paste your free key from https://web3forms.com — emails go to the address you verify there. */
-  var WEB3FORMS_ACCESS_KEY = "b382dd26-1d13-4100-926c-3aa9f934412f";
-
-  /**
-   * Public booking URL (Calendly, Cal.com, Google Appointment Schedules, etc.).
-   * Example: https://calendly.com/your-name/30min
-   * Leave empty: "Schedule a call" links scroll to #schedule on the homepage instead.
-   */
-  var SCHEDULE_CALL_URL = "";
+  var cfg = (typeof window !== "undefined" && window.KRAMA_CONFIG) || {};
+  var WEB3FORMS_ACCESS_KEY = cfg.web3formsAccessKey || "";
+  var SCHEDULE_CALL_URL = cfg.scheduleCallUrl || "";
 
   function applyScheduleLinks() {
     document.querySelectorAll("a[data-schedule-call]").forEach(function (link) {
@@ -46,10 +40,35 @@
     if (hint) hint.hidden = false;
   }
 
+  function initSocialLinks() {
+    var wrap = document.getElementById("footer-social");
+    if (!wrap) return;
+    var links = [
+      { label: "LinkedIn", url: cfg.linkedInUrl },
+      { label: "YouTube", url: cfg.youtubeUrl },
+      { label: "Twitter / X", url: cfg.twitterUrl },
+    ].filter(function (item) {
+      return item.url && String(item.url).trim();
+    });
+    if (!links.length) {
+      wrap.hidden = true;
+      return;
+    }
+    wrap.innerHTML = "";
+    links.forEach(function (item) {
+      var a = document.createElement("a");
+      a.href = item.url.trim();
+      a.textContent = item.label;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      wrap.appendChild(a);
+    });
+  }
+
   applyScheduleLinks();
   initScheduleEmbed();
+  initSocialLinks();
 
-  // Accent / theme toggle (cosmetic)
   var themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
@@ -58,7 +77,6 @@
     });
   }
 
-  // Mobile navigation toggle
   var menuToggle = document.querySelector(".menu-toggle");
   var nav = document.querySelector(".nav");
   var navShell = document.querySelector(".nav-shell");
@@ -80,7 +98,6 @@
     });
   }
 
-  // FAQ accordion
   var faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach(function (item) {
     var button = item.querySelector(".faq-question");
@@ -88,14 +105,12 @@
     button.addEventListener("click", function () {
       var isOpen = item.classList.toggle("is-open");
       if (!isOpen) return;
-      // Close others
       faqItems.forEach(function (other) {
         if (other !== item) other.classList.remove("is-open");
       });
     });
   });
 
-  // Contact / demo request → Web3Forms (email notification to owner)
   var demoForm = document.getElementById("demo-request-form");
   var formFeedback = document.getElementById("form-feedback");
   var submitBtn = document.getElementById("form-submit-btn");
@@ -106,7 +121,7 @@
 
       if (!WEB3FORMS_ACCESS_KEY) {
         formFeedback.textContent =
-          "Add your Web3Forms access key in script.js (WEB3FORMS_ACCESS_KEY) to enable email notifications.";
+          "We could not send your request right now. Please email sales@kramaai.com or use Schedule a call.";
         formFeedback.classList.remove("form-feedback--ok");
         formFeedback.classList.add("form-feedback--err");
         return;
@@ -173,7 +188,8 @@
             demoForm.reset();
           } else {
             formFeedback.textContent =
-              (result.data && result.data.message) || "Something went wrong. Please try again or email us directly.";
+              (result.data && result.data.message) ||
+              "Something went wrong. Please try again or email sales@kramaai.com.";
             formFeedback.classList.add("form-feedback--err");
           }
         })
@@ -189,4 +205,3 @@
     });
   }
 })();
-

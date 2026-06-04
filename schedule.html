@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Schedule a call · KramaAI BMS</title>
   <meta name="description" content="Book a live KramaAI BMS walkthrough. Pick a time on our calendar or use the contact form on the homepage." />
+  <link rel="canonical" href="https://www.kramaai.com/schedule" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +27,7 @@
         <nav class="nav nav-pill" aria-label="Main">
           <a href="index.html#problem">Problem</a>
           <a href="index.html#solution">Solution</a>
+          <a href="index.html#ai">AI</a>
           <a href="index.html#screens">Live demo</a>
           <a href="index.html#features">Features</a>
           <a href="index.html#compare">Compare</a>
@@ -34,10 +36,10 @@
         </nav>
       </div>
       <div class="header-actions">
-        <button type="button" class="btn btn-theme" id="theme-toggle" aria-pressed="false" aria-label="Toggle accent intensity">Accent</button>
+        <button type="button" class="btn btn-theme" id="theme-toggle" aria-pressed="false" aria-label="Toggle accent intensity"><span class="btn-theme-icon" aria-hidden="true">◐</span></button>
         <div class="header-cta">
-          <a href="index.html#screens" class="btn btn-ghost">See live UI</a>
-          <a href="#top" data-schedule-call data-schedule-fallback="index.html#cta" class="btn btn-primary">Schedule a call</a>
+          <a href="index.html#screens" class="btn btn-ghost btn-secondary-cta">See live UI</a>
+          <a href="#top" data-schedule-call data-schedule-fallback="index.html#cta" class="btn btn-primary">Book a demo</a>
         </div>
       </div>
       <button class="menu-toggle" type="button" aria-label="Toggle navigation">
@@ -53,16 +55,15 @@
           <p class="section-kicker">Schedule</p>
           <h1 id="schedule-page-title">Pick a time for your demo</h1>
           <p class="section-subtitle">
-            When <code>SCHEDULE_CALL_URL</code> is set in <code>script.js</code>, the buttons below open your Calendly / Cal.com /
-            Google booking page. Otherwise you are routed to the contact form with date and time fields.
+            Open the booking calendar below, or use the <a href="index.html#cta">contact form</a> with your preferred date and time.
           </p>
         </header>
 
         <div class="schedule-panel schedule-panel--standalone">
           <div class="schedule-panel-actions">
             <a href="#top" data-schedule-call data-schedule-fallback="index.html#cta" class="btn btn-primary btn-lg btn-arrow">Open booking calendar</a>
-            <a href="index.html#cta" class="btn btn-outline btn-lg">Use contact form</a>
-            <a href="index.html#screens" class="btn btn-ghost btn-lg">See product screenshots first</a>
+            <a href="index.html#cta" class="btn btn-outline btn-lg btn-secondary-cta">Use contact form</a>
+            <a href="index.html#screens" class="btn btn-ghost btn-lg btn-secondary-cta">See product screenshots first</a>
           </div>
 
           <p id="schedule-embed-browser-note" class="schedule-embed-note" hidden>
@@ -94,6 +95,7 @@
         <h3>Journey</h3>
         <a href="index.html#problem">Problem</a>
         <a href="index.html#solution">Solution</a>
+        <a href="index.html#ai">AI</a>
         <a href="index.html#screens">Live demo</a>
         <a href="index.html#features">Features</a>
         <a href="index.html#compare">Compare</a>
@@ -113,22 +115,20 @@
       </div>
       <div class="footer-column">
         <h3>Legal</h3>
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
+        <a href="legal/terms.html">Terms</a>
+        <a href="legal/privacy.html">Privacy</a>
+        <a href="legal/data-processing.html">Data processing</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
         <p>© 2026 KramaAI. All rights reserved.</p>
-        <div class="footer-social">
-          <a href="#">LinkedIn</a>
-          <a href="#">YouTube</a>
-          <a href="#">Twitter / X</a>
-        </div>
+        <div class="footer-social" id="footer-social"></div>
       </div>
     </div>
   </footer>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
