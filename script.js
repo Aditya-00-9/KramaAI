@@ -45,7 +45,7 @@
     if (!wrap) return;
     var links = [
       { label: "LinkedIn", url: cfg.linkedInUrl },
-      { label: "YouTube", url: cfg.youtubeUrl },
+      { label: "Instagram", url: cfg.instagramUrl },
       { label: "Twitter / X", url: cfg.twitterUrl },
     ].filter(function (item) {
       return item.url && String(item.url).trim();
@@ -65,9 +65,21 @@
     });
   }
 
+  function initContactEmails() {
+    var email = (cfg.contactEmail || "hello@kramaai.com").trim();
+    document.querySelectorAll("[data-contact-email]").forEach(function (el) {
+      var prefix = el.getAttribute("data-contact-prefix") || "";
+      el.href = "mailto:" + email + (prefix ? "?subject=" + encodeURIComponent(prefix) : "");
+      if (el.hasAttribute("data-contact-text")) {
+        el.textContent = email;
+      }
+    });
+  }
+
   applyScheduleLinks();
   initScheduleEmbed();
   initSocialLinks();
+  initContactEmails();
 
   var themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
@@ -121,7 +133,9 @@
 
       if (!WEB3FORMS_ACCESS_KEY) {
         formFeedback.textContent =
-          "We could not send your request right now. Please email sales@kramaai.com or use Schedule a call.";
+          "We could not send your request right now. Please email " +
+          (cfg.contactEmail || "hello@kramaai.com") +
+          " or book a demo on the calendar.";
         formFeedback.classList.remove("form-feedback--ok");
         formFeedback.classList.add("form-feedback--err");
         return;

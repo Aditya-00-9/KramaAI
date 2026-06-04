@@ -33,8 +33,9 @@ Set these in the Vercel project **Settings → Environment Variables** (Producti
 | `WEB3FORMS_ACCESS_KEY` | Contact form delivery ([web3forms.com](https://web3forms.com)) |
 | `SCHEDULE_CALL_URL` | Calendly / Cal.com booking URL for all “Book a demo” buttons |
 | `SITE_URL` | Canonical base, e.g. `https://www.kramaai.com` |
+| `CONTACT_EMAIL` | Default `hello@kramaai.com` for mailto links |
 | `LINKEDIN_URL` | Optional; footer hidden if empty |
-| `YOUTUBE_URL` | Optional |
+| `INSTAGRAM_URL` | Optional |
 | `TWITTER_URL` | Optional |
 
 Vercel runs `npm run build` before deploy, which generates `config.js`.
