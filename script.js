@@ -127,6 +127,16 @@
   var formFeedback = document.getElementById("form-feedback");
   var submitBtn = document.getElementById("form-submit-btn");
 
+  document.querySelectorAll("[data-form-prefill]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      var subject = link.getAttribute("data-form-prefill") || "";
+      var ctx = document.getElementById("form-context");
+      if (ctx && subject) {
+        ctx.value = "Inquiry: " + subject;
+      }
+    });
+  });
+
   if (demoForm && formFeedback) {
     demoForm.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -148,22 +158,20 @@
 
       var name = (document.getElementById("form-name") || {}).value || "";
       var email = (document.getElementById("form-email") || {}).value || "";
-      var company = (document.getElementById("form-company") || {}).value || "";
+      var centerType = (document.getElementById("form-center-type") || {}).value || "";
       var centers = (document.getElementById("form-centers") || {}).value || "";
-      var appointmentDate = (document.getElementById("form-appointment-date") || {}).value || "";
-      var appointmentTime = (document.getElementById("form-appointment-time") || {}).value || "";
+      var currentSoftware = (document.getElementById("form-current-software") || {}).value || "";
       var context = (document.getElementById("form-context") || {}).value || "";
 
       var message =
-        "Preferred demo appointment: " +
-        (appointmentDate || "—") +
-        (appointmentTime ? " at " + appointmentTime : "") +
-        "\n\n" +
-        "Organization: " +
-        (company || "—") +
+        "Center type: " +
+        (centerType || "—") +
         "\n" +
-        "Centers: " +
+        "Locations: " +
         (centers || "—") +
+        "\n" +
+        "Current software: " +
+        (currentSoftware || "—") +
         "\n\n" +
         "Notes:\n" +
         (context || "—");

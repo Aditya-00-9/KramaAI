@@ -2562,3 +2562,238 @@ img {
   color: var(--accent);
 }
 
+/* Nav sticky CTA */
+.btn-nav-cta {
+  font-size: 0.88rem;
+  padding: 0.45rem 0.85rem;
+}
+
+.logo-stack .logo-tagline {
+  display: none;
+}
+
+/* Hero */
+.hero-tags--outcomes {
+  margin: 0.75rem 0 1rem;
+}
+
+.hero-secondary-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-secondary-link:hover {
+  color: var(--accent);
+}
+
+/* Credibility bar */
+.credibility-bar {
+  padding: 1.25rem 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.credibility-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+}
+
+.credibility-item {
+  text-align: center;
+  min-width: 120px;
+}
+
+.credibility-value {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-strong);
+}
+
+.credibility-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.credibility-divider {
+  width: 1px;
+  height: 2rem;
+  background: var(--border-subtle);
+}
+
+@media (max-width: 640px) {
+  .credibility-divider {
+    display: none;
+  }
+}
+
+/* Problem / solution */
+.problem-grid .problem-card,
+.capability-card,
+.migration-step {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--color-panel);
+}
+
+.problem-icon,
+.solution-icon,
+.capability-icon,
+.migration-icon {
+  display: block;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.problem-transition,
+.solution-cta,
+.features-depth-link,
+.migration-trust,
+.screens-inline-cta {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+.problem-transition a,
+.solution-cta a,
+.features-depth-link a,
+.screens-inline-cta a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.solution-grid .feature-summary ul {
+  display: none;
+}
+
+/* Screens 2x2 */
+@media (min-width: 768px) {
+  .shot-grid--quad {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Capability grid */
+.capability-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--color-strong);
+}
+
+.capability-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.testimonial-metric {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Data trust points */
+.data-trust-points {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .data-trust-points {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.data-trust-point {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--color-panel-soft);
+}
+
+.data-trust-point h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--color-strong);
+}
+
+.data-trust-point p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* Schedule */
+.schedule-steps-mini {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  max-width: 40rem;
+}
+
+.schedule-steps-mini li {
+  margin-bottom: 0.5rem;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+.schedule-fallback-actions {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.cta-footer-note {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.cta-footer-note a {
+  color: var(--accent);
+}
+
+.pricing-for {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.pricing-guarantee-inline {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.cta-form select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--color-panel);
+  color: var(--color-body);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-field--full {
+  flex: 1 1 100%;
+}
+
