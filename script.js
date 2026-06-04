@@ -21,6 +21,19 @@
     });
   }
 
+  function calendlyEmbedSrc(url) {
+    try {
+      var parsed = new URL(url);
+      if (parsed.hostname.indexOf("calendly.com") === -1) return url;
+      if (!parsed.searchParams.has("embed_type")) {
+        parsed.searchParams.set("embed_type", "Inline");
+      }
+      return parsed.toString();
+    } catch (e) {
+      return url;
+    }
+  }
+
   function initScheduleEmbed() {
     var wrap = document.getElementById("schedule-embed");
     if (!wrap || !SCHEDULE_CALL_URL || !SCHEDULE_CALL_URL.trim()) return;
@@ -31,13 +44,16 @@
     iframe.title = "Pick a time — Calendly";
     iframe.loading = "lazy";
     iframe.referrerPolicy = "no-referrer-when-downgrade";
-    iframe.src = url;
+    iframe.src = calendlyEmbedSrc(url);
     wrap.innerHTML = "";
     wrap.appendChild(iframe);
     wrap.hidden = false;
     wrap.classList.add("schedule-embed-wrap--active");
     var hint = document.getElementById("schedule-embed-browser-note");
     if (hint) hint.hidden = false;
+    document.querySelectorAll(".schedule-fallback-actions").forEach(function (el) {
+      el.hidden = true;
+    });
   }
 
   function initSocialLinks() {
@@ -76,18 +92,54 @@
     });
   }
 
+  function initRoiCalculator() {
+    var locationsEl = document.getElementById("roi-locations");
+    var hoursEl = document.getElementById("roi-hours");
+    var rateEl = document.getElementById("roi-rate");
+    var outputEl = document.getElementById("roi-output");
+    if (!locationsEl || !hoursEl || !rateEl || !outputEl) return;
+
+    var locationsVal = document.getElementById("roi-locations-val");
+    var hoursVal = document.getElementById("roi-hours-val");
+    var rateVal = document.getElementById("roi-rate-val");
+
+    function formatMoney(n) {
+      return "$" + Math.round(n).toLocaleString("en-US");
+    }
+
+    function update() {
+      var locations = Number(locationsEl.value) || 1;
+      var hours = Number(hoursEl.value) || 1;
+      var rate = Number(rateEl.value) || 10;
+      if (locationsVal) locationsVal.textContent = String(locations);
+      if (hoursVal) hoursVal.textContent = String(hours);
+      if (rateVal) rateVal.textContent = formatMoney(rate);
+
+      var monthlySpend = locations * hours * rate * 4.33;
+      var lowSave = monthlySpend * 0.6;
+      var highSave = monthlySpend * 0.8;
+      outputEl.innerHTML =
+        "<p>You are spending approximately <strong>" +
+        formatMoney(monthlySpend) +
+        "</strong>/month on manual admin work across your team.</p>" +
+        "<p>KramaAI customers report recovering <strong>60–80%</strong> of that time. Your estimated monthly savings: <strong>" +
+        formatMoney(lowSave) +
+        " – " +
+        formatMoney(highSave) +
+        "</strong>.</p>";
+    }
+
+    [locationsEl, hoursEl, rateEl].forEach(function (el) {
+      el.addEventListener("input", update);
+    });
+    update();
+  }
+
   applyScheduleLinks();
   initScheduleEmbed();
   initSocialLinks();
   initContactEmails();
-
-  var themeToggle = document.getElementById("theme-toggle");
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      var on = document.body.classList.toggle("accent-soft");
-      themeToggle.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-  }
+  initRoiCalculator();
 
   var menuToggle = document.querySelector(".menu-toggle");
   var nav = document.querySelector(".nav");
